@@ -1,0 +1,34 @@
+@startuml
+class HoaDonHeader{
+    - String maHoaDon
+    - String ngayBan
+    - String tenKhachHang
+    + HoaDonHeader(Sring maHoaDon, String ngayBan, String tenKhachHang)
+}
+
+class CTHD{
+    - String sanPham
+    - Integer soLuong
+    - Double donGia
+    - Double chietKhau
+    + CTHD(String sanPham, Integer soLuong, Double donGia, Double chietKhau)
+}
+
+class HoaDon{
+    - HoaDonHeader hoaDonHeader
+    - ArrayList<CTHD> cTHD
+    + HoaDon(...)
+}
+
+static class Builder{
+    - HoaDonHeader hoaDonHeader
+    - ArrayList<CTHD> cTHD
+    + Builder setHeader(Sring maHoaDon, String ngayBan, String tenKhachHang)
+    + Builder setCTHD(String sanPham, Integer soLuong, Double donGia, Double chietKhau)
+    + HoaDon build()
+}
+
+HoaDon *.."1" HoaDonHeader
+HoaDon *.. "*" CTHD
+HoaDon ..> Builder
+@enduml

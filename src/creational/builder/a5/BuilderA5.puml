@@ -1,0 +1,24 @@
+@startuml
+class Sach{
+    - String tuaDe
+    - Integer soTrang
+    - String tacGia
+    - ArrayList<String> danhSachChuong
+    + Sach(...)
+    + String toString()
+}
+
+static class Builder{
+    - String tuaDe
+    - Integer soTrang
+    - String tacGia
+    - ArrayList<String> danhSachChuong
+    + Builder addTuaDe(String tuaDe)
+    + Builder addSoTrang(Integer soTrang)
+    + Builder addTacGia(String tacGia)
+    + Builder addChuong(String chuong)
+    + Sach build()
+}
+
+Sach ..> Builder
+@enduml
