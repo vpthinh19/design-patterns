@@ -1,0 +1,18 @@
+@startuml
+abstract class Nut{
+    # int data
+    + <<abstract>> void duyet()
+    + <<abstract>> void themTrai(Nut nut)
+    + <<abstract>> void themPhai(Nut nut)
+    + <<abstract>> void xoaTrai()
+    + <<abstract>> void xoaPhai()
+}
+
+class NutLa{}
+class NutTrong{}
+Nut <|-- NutLa
+Nut <|-- NutTrong
+NutTrong --> Nut: trai
+NutTrong --> Nut: phai
+
+@enduml
