@@ -1,0 +1,24 @@
+@startuml
+'https://plantuml.com/class-diagram
+abstract class Component{
+    # ten: String
+    # ngayTao: String
+    # parent: String
+    + Component(ten: String, ngayTao: String)
+    + setParent(String parent): void
+    + <<abstract>> getStringTreeFolder(String prefix): String
+    + <<abstract>> getPath(): String
+    + <<abstract>> getParent(): String
+}
+
+class File{}
+class Folder{
+    - ArrayList<Component> danhSachCon
+    + addItem(Component component): void
+    + removeItem: void
+}
+
+Component <|-- File
+Component <|-- Folder
+
+@enduml

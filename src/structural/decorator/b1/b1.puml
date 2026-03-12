@@ -1,0 +1,55 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface BieuThuc{
+    + giaTri(): double
+    + bieuThuc(): String
+}
+
+abstract class Decorator{
+    + Decorator(bieuThuc: BieuThuc)
+}
+
+class BieuThucDonGian{
+    - toanHang: double
+    + <<override>> giaTri(): double
+    + <<override>> bieuThuc(): String
+}
+
+class Cong{
+    - toanHang: double
+    + Cong(bieuThuc: BieuThuc, double toanHang)
+    + <<override>> giaTri(): double
+    + <<override>> bieuThuc(): String
+}
+
+class Tru{
+    - toanHang: double
+    + Tru(bieuThuc: BieuThuc, double toanHang)
+    + <<override>> giaTri(): double
+    + <<override>> bieuThuc(): String
+}
+
+class Nhan{
+    - toanHang: double
+    + Nhan(bieuThuc: BieuThuc, double toanHang)
+    + <<override>> giaTri(): double
+    + <<override>> bieuThuc(): String
+}
+
+class Chia{
+    - toanHang: double
+    + Chia(bieuThuc: BieuThuc, double toanHang)
+    + <<override>> giaTri(): double
+    + <<override>> bieuThuc(): String
+}
+
+BieuThuc <|-- BieuThucDonGian
+BieuThuc <|-- Decorator
+Decorator --> BieuThuc: bieuThuc
+Decorator <|-- Cong
+Decorator <|-- Tru
+Decorator <|-- Nhan
+Decorator <|-- Chia
+
+@enduml
