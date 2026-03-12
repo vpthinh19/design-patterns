@@ -1,7 +1,7 @@
 package structural.decorator.b1;
 
 public class Chia extends Decorator{
-    private Double toanHang;
+    private final Double toanHang;
 
     public Chia(BieuThuc bieuThuc, Double toanHang) {
         super(bieuThuc);

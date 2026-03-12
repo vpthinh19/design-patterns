@@ -7,13 +7,11 @@ public class Tokenizer extends Decorator{
     private ArrayList<String> mangChuoi;
     public Tokenizer(Chuoi chuoi) {
         super(chuoi);
+        mangChuoi = new ArrayList<>(Arrays.asList(chuoi.get().getFirst().split(" ")));
     }
 
     @Override
-    public ArrayList<String> print() {
-        String[] mangChuoiTinh = chuoi.print().removeFirst().split("[,# :.]");
-        mangChuoi = new ArrayList<String>(Arrays.asList(mangChuoiTinh));
-        mangChuoiTinh = null;
+    public ArrayList<String> get() {
         return mangChuoi;
     }
 }

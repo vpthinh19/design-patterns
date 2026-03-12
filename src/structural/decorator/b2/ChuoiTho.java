@@ -4,15 +4,14 @@ import java.util.ArrayList;
 
 public class ChuoiTho implements Chuoi{
     private String chuoi;
-    private ArrayList<String> mangChuoi;
+    private ArrayList<String> mangChuoi = new ArrayList<>();
     public ChuoiTho(String chuoi) {
         this.chuoi = chuoi;
+        mangChuoi.add(chuoi);
     }
 
     @Override
-    public ArrayList<String> print() {
-        mangChuoi = new ArrayList<String>();
-        mangChuoi.add(chuoi);
+    public ArrayList<String> get() {
         return mangChuoi;
     }
 }

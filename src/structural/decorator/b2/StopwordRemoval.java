@@ -6,23 +6,22 @@ import java.util.Iterator;
 
 public class StopwordRemoval extends Decorator{
     private ArrayList<String> mangChuoi;
-    String[] mangStopWords = new String[]{"và", "hoặc", "thì", "mà", "là"};
-    private ArrayList<String> stopWords = new ArrayList<>(Arrays.asList(mangStopWords));
 
     public StopwordRemoval(Chuoi chuoi) {
         super(chuoi);
-    }
-
-    @Override
-    public ArrayList<String> print() {
-        mangChuoi = chuoi.print();
+        ArrayList<String> mangTuDung = new ArrayList<>(Arrays.asList("và", "hoặc", "thì", "mà", "là"));
+        mangChuoi = new ArrayList<>(chuoi.get());
         Iterator<String> it = mangChuoi.iterator();
         while (it.hasNext()){
             String s = it.next();
-            if (stopWords.contains(s)){
+            if (mangTuDung.contains(s)){
                 it.remove();
             }
         }
+    }
+
+    @Override
+    public ArrayList<String> get() {
         return mangChuoi;
     }
 }

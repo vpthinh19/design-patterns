@@ -1,7 +1,7 @@
 package structural.decorator.b1;
 
 public class Nhan extends Decorator{
-    private Double toanHang;
+    private final Double toanHang;
     public Nhan(BieuThuc bieuThuc, Double toanHang) {
         super(bieuThuc);
         this.toanHang = toanHang;
