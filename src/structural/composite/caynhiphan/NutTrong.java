@@ -4,8 +4,6 @@ public class NutTrong extends Nut{
     private Nut nutTrai, nutPhai;
     public NutTrong(int data) {
         super(data);
-        this.nutTrai = null;
-        this.nutPhai = null;
     }
 
     @Override
