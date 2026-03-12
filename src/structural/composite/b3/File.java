@@ -11,14 +11,6 @@ public class File extends Component{
     }
 
     @Override
-    public String getPath() {
-        if (parent != null){
-            return parent.getPath() + "\\" + ten;
-        }
-        return ten;
-    }
-
-    @Override
     public void addItem(Component component) {
 
     }

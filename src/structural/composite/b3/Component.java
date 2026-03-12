@@ -13,8 +13,14 @@ public abstract class Component {
     public void setParent(Component parent){
         this.parent = parent;
     }
+
+    public String getPath() {
+        if (parent != null){
+            return parent.getPath() + "/" + ten;
+        }
+        return "/" + ten;
+    }
     public abstract String getStringTreeFolder(String prefix);
-    public abstract String getPath();
     public abstract void addItem(Component component);
     public abstract void removeItem(Component component);
 }
