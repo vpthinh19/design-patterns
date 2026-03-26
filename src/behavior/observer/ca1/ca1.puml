@@ -1,0 +1,33 @@
+@startuml
+class Stream<T>{
+    + void addEvent(T t)
+    + void addListener(Listener l)
+    + void removeListener(Listener l)
+}
+interface Listener<T>{
+    + void listen(T t)
+}
+class Client<List<MonHoc>>{
+    + <<implements>> void listen(T t)
+}
+class DataAccess{
+    + void add(MonHoc m)
+    + void update(MonHoc m)
+    + void delete(String ten)
+}
+class MonHoc{
+    String ten
+    int soTC
+}
+
+note left of Stream
+addEvent la phuong thuc notify
+end note
+
+Stream --> "*" Listener: listeners
+Listener <|.. Client
+Client --> Stream: stream
+DataAccess --> Stream: stream
+DataAccess *--> MonHoc: monHocs
+
+@enduml

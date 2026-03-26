@@ -1,0 +1,15 @@
+@startuml
+class DichVuTiGia{
+    - double tiGia
+    + void attach(NhaDauTuListener ndt)
+    + void detach(NhaDauTuListener ndt)
+    + void capNhatTiGia(double tiGia)
+}
+class NhaDauTuListener{
+    + void capNhat(double tiGia)
+}
+class NhaDauTu
+DichVuTiGia --> "*" NhaDauTuListener: nhaDauTus
+NhaDauTuListener <|.. NhaDauTu
+NhaDauTu --> DichVuTiGia: dichVu
+@enduml

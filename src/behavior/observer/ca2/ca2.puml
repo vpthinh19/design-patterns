@@ -1,0 +1,15 @@
+@startuml
+class Button{
+    - int count
+    + void attach(IActivity a)
+    + void detach(IActivity a)
+    + void click()
+}
+class Activity
+interface IActivity{
+    + void print(int count)
+}
+Button --> IActivity: activity
+IActivity <|.. Activity
+Activity --> Button: button
+@enduml

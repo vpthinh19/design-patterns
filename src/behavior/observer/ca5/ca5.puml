@@ -1,0 +1,26 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface ITaiKhoan{
+    + kiemTraSoDu(soTien: double): boolean
+    + nhanThongBao(msg: String): void
+}
+
+class TaiKhoan{
+    - tenTaiKhoan: String
+    - soDu: double
+    + <<override>> kiemTraSoDu(): double
+    + <<override>> nhanThongBao(msg: String): void
+}
+
+class ATM{
+    + nhanThe(taiKhoan: ITaiKhoan): void
+    + traThe(): void
+    + rutTien(soTien: double): void
+}
+
+ATM --> ITaiKhoan: taiKhoan
+TaiKhoan ..|> ITaiKhoan
+TaiKhoan --> ATM: atm
+
+@enduml

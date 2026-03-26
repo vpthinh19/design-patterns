@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class ChuTich{}
+class NhanVienChoVay{
+
+}
+
+abstract class NhanVienDuyetVay{
+    # String ten, chucVu
+    # int hanMuc
+    + NhanVienDuyetVay capTren(DuyetVay capTren)
+    + void NhanVienDuyetVay(int soTien)
+}
+
+NhanVienDuyetVay <|-- ChuTich
+NhanVienDuyetVay <|-- NhanVienChoVay
+NhanVienChoVay o--> NhanVienDuyetVay: capTren
+@enduml

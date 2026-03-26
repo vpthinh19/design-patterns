@@ -1,0 +1,22 @@
+@startuml
+class Topic{
+    - List<Tin> danhSachTin
+    + void themNguoiDangKy(ThanhVien tv)
+    + void xoaNguoiDangKy(ThanhVien tv)
+    + void taoThongTinMoi(Tin tin)
+    + void capNhatThongTin(String ten, String noiDungMoi)
+}
+interface ThanhVienListerner{
+    + void nhanThongBaoMoi(Tin tin)
+    + void NhanThongBaoCapNhat(Tin tin)
+}
+class Tin{
+    - String ten
+    - String noiDung
+}
+class ThanhVienLopA
+class ThanhVienLopB
+Topic --> "*" ThanhVien: thanhViens
+ThanhVien <|.. ThanhVienLopA
+ThanhVien <|.. ThanhVienLopB
+@enduml

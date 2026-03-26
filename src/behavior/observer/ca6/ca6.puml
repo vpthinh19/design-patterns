@@ -1,0 +1,20 @@
+@startuml
+class PlayerData{
+    - double thoiGian
+    - int countdown
+    - double grade
+    + void attach(PlayerDataListener l)
+    + void detach(PlayerDataListener l)
+    + void setThoiGian(double thoiGian)
+    + void setCountdown(int countdown)
+    + void setGrade(double grade)
+    - void thongBao()
+}
+interface PlayerDataListener{
+    + void listen(PlayerData data)
+}
+class DashBoard
+PlayerData --> PlayerDataListener: listener
+PlayerDataListener <|.. DashBoard
+DashBoard --> PlayerData: playerData
+@enduml
