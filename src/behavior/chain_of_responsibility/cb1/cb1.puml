@@ -1,0 +1,23 @@
+@startuml
+abstract class ATM{
+    # int menhGia
+    # String ten
+    + <<abstract>> int rutTien(int soTien)
+    + <<abstract>> ATM keTiep(ATM keTiep)
+}
+class MenhGiaTien{}
+class MenhGiaThapNhat{}
+class ATMChuoiVND{
+    + <<override>> ATM getChuoiMenhGia(int mg)
+    + rutTien(int mg, int mgLonNhat)
+}
+class ATMChuoi{
+    + <<abstract>> ATM getChuoiMenhGia(int mg)
+    + rutTien(int mg, int mgLonNhat)
+}
+MenhGiaTien --|> ATM
+MenhGiaThapNhat --|> ATM
+MenhGiaTien o--> ATM: keTiep
+ATMChuoiVND *--> ATM: mg500, mg100, mg50, mg10, mg1
+ATMChuoi <|-- ATMChuoiVND
+@enduml

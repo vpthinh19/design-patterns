@@ -1,0 +1,13 @@
+@startuml
+abstract class IBac{
+    # int min, max, gia
+    # String ten
+    + IBac keTiep(IBac bacKeTiep)
+    + int tinhTienDien(int soKWh)
+}
+class Bac{}
+class BacCaoNhat{}
+IBac <|-- Bac
+IBac <|-- BacCaoNhat
+IBac <--o Bac: bacKeTiep
+@enduml
