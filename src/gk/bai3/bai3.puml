@@ -1,0 +1,27 @@
+@startuml
+class Notification{
+    - String tieuDe
+    - String noiDung
+    - String bieuTuong
+    - String amThanh
+    - String nutHanhDong
+    + Notification(String td, String nd, String bt, String at, String nhd)
+}
+
+class Builder{
+    - String tieuDe
+    - String noiDung
+    - String bieuTuong
+    - String amThanh
+    - String nutHanhDong
+    + Builder()
+    + Builder addTieuDe(String tieuDe)
+    + Builder addNoiDung(String noiDung)
+    + Builder addBieuTuong(String bieuTuong)
+    + Builder addAmThanh(String amThanh)
+    + Builder addNutHanhDong(String nutHanhDong)
+    + Notification build()
+}
+
+Builder --> Notification
+@enduml

@@ -1,0 +1,33 @@
+@startuml
+interface IAnh{
+    + String hienThi()
+}
+class Anh{
+    - String anh
+    + <<override>> String hienThi()
+}
+abstract class Decorator{
+    + Decorator(IAnh anh)
+    + <<override>> String hienThi()
+}
+class BorderDecorator{
+    + BorderDecorator(IAnh anh)
+    + <<override>> String hienThi()
+}
+class WatermarkDecorator{
+    + WatermarkDecorator(IAnh anh)
+    + <<override>> String hienThi()
+}
+class FilterDecorator{
+    + FilterDecorator(IAnh anh)
+    + <<override>> String hienThi()
+}
+
+IAnh <|.. Anh
+IAnh <|.. Decorator
+Decorator --> IAnh: decorator
+Decorator <|-- BorderDecorator
+Decorator <|-- WatermarkDecorator
+Decorator <|-- FilterDecorator
+
+@enduml

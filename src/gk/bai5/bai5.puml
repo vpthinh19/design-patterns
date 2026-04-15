@@ -1,0 +1,47 @@
+@startuml
+interface IDonHang{
+    + <<abstract>> double tinhGia()
+    + <<abstract>> String hienThiMoTa()
+}
+class DonHangCoBan{
+    - String tenSanPham
+    - double giaTien
+    - String moTa
+    + <<override>> double tinhGia()
+    + <<override>> String hienThiMoTa()
+}
+abstract class Decorator{
+    + Decorator(IDonHang decorator)
+    + <<override>> double tinhGia()
+    + <<override>> String hienThiMoTa()
+}
+class ToppingDecorator{
+    - String
+    + ToppingDecorator(IDonHang decorator)
+    + <<override>> double tinhGia()
+    + <<override>> String hienThiMoTa()
+}
+class SotDecorator{
+    + SotDecorator(IDonHang decorator)
+    + <<override>> double tinhGia()
+    + <<override>> String hienThiMoTa()
+}
+class DongGoiDacBietDecorator{
+    + DongGoiDacBietDecorator(IDonHang decorator)
+    + <<override>> double tinhGia()
+    + <<override>> String hienThiMoTa()
+}
+class MaGiamGiaDecorator{
+    + MaGiamGiaDecorator(IDonHang decorator)
+    + <<override>> double tinhGia()
+    + <<override>> String hienThiMoTa()
+}
+
+IDonHang <|.. DonHangCoBan
+IDonHang <|.. Decorator
+Decorator <|-- ToppingDecorator
+Decorator <|-- SotDecorator
+Decorator <|-- DongGoiDacBietDecorator
+Decorator <|-- MaGiamGiaDecorator
+IDonHang <--o Decorator: decorator
+@enduml

@@ -1,0 +1,22 @@
+@startuml
+class LogItem{
+    String thoiGian, noiDung
+}
+
+class Logger{
+    - static Logger instance
+    - Logger()
+    + static Logger getInstance()
+    + void setItem(LogItem item)
+    + String log(int programId, String thoiGian, String noiDung)
+}
+
+class Program{
+    - int programId
+    + String log(String thoiGian, String noiDung)
+}
+
+Program --> Logger: logger
+Logger o--> LogItem: item
+
+@enduml

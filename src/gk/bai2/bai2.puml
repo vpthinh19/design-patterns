@@ -1,0 +1,31 @@
+@startuml
+abstract class MenuItem{
+    # String ten
+    + MenuItem(String ten)
+    + <<abstract>> void add(MenuItem item)
+    + <<abstract>> void remove(MenuItem item)
+    + <<abstract>> void hienThi(String prefix)
+    + <<abstract>> double tinhGia()
+}
+
+class MonAn{
+    - double gia
+    + MonAn(String ten, double gia)
+    + <<override>> void add(MenuItem item)
+    + <<override>> void remove(MenuItem item)
+    + <<override>> void hienThi(String prefix)
+    + <<override>> double tinhGia()
+}
+
+class Combo{
+    + Combo(String ten)
+    + <<override>> void add(MenuItem item)
+    + <<override>> void remove(MenuItem item)
+    + <<override>> void hienThi(String prefix)
+    + <<override>> double tinhGia()
+}
+
+MenuItem <|-- MonAn
+MenuItem <|-- Combo
+Combo o--> "*" MenuItem: items
+@enduml
