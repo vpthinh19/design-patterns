@@ -5,7 +5,8 @@ class Notification{
     - String bieuTuong
     - String amThanh
     - String nutHanhDong
-    + Notification(String td, String nd, String bt, String at, String nhd)
+    - int doUuTien
+    - Notification(Builder builder)
 }
 
 class Builder{
@@ -14,14 +15,16 @@ class Builder{
     - String bieuTuong
     - String amThanh
     - String nutHanhDong
+    - int doUuTien
     + Builder()
-    + Builder addTieuDe(String tieuDe)
-    + Builder addNoiDung(String noiDung)
-    + Builder addBieuTuong(String bieuTuong)
-    + Builder addAmThanh(String amThanh)
-    + Builder addNutHanhDong(String nutHanhDong)
+    + Builder withTieuDe(String tieuDe)
+    + Builder withNoiDung(String noiDung)
+    + Builder withBieuTuong(String bieuTuong)
+    + Builder withAmThanh(String amThanh)
+    + Builder withNutHanhDong(String nutHanhDong)
+    + Builder withDoUuTien(int doUuTien)
     + Notification build()
 }
 
-Builder --> Notification
+Builder ..> Notification
 @enduml

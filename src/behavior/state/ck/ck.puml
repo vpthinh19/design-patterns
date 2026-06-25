@@ -1,0 +1,25 @@
+@startuml
+
+class ThueBao{
+    - double soDu
+    + void setState(State state)
+    + void napTien(double soTien)
+    + void thucHienCuocGoi(int soGiay)
+    + void inThongTin()
+}
+interface State{
+    + void napTien(ThueBao tb, double soTien)
+    + void makecall(ThueBao tb, int soGiay)
+    + void inThongTin(ThueBao tb)
+}
+
+class NormalState
+class SilverState
+class GoldState
+
+ThueBao o--> State: state
+State <|.. NormalState
+State <|.. SilverState
+State <|.. GoldState
+
+@enduml

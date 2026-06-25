@@ -1,0 +1,37 @@
+@startuml
+
+interface IThanhToan<T>{
+    + double tinhTienGiam(double tongTienHang)
+}
+interface IKhuyenMai<T>{
+    + double tinhTienKhuyenMai(double tongTienHang)
+}
+class MatHang{
+    - ten: String
+    - soLuong: int
+    - donGia: double
+    + double getThanhTien()
+    + String toSTring()
+}
+class GioHang{
+    + thanhToan(soTien: double): void
+    + double tinhTongTienHang()
+    + void themMatHang(MatHang matHang)
+}
+class ThanhToanAirpay
+class ThanhToanCOD
+class KhuyenMaiPhanTram{
+    - double phanTramGiam
+    - double mucGiamToiDa
+}
+
+IThanhToan <|.. ThanhToanAirpay
+IThanhToan <|.. ThanhToanCOD
+
+IKhuyenMai <|.. KhuyenMaiPhanTram
+
+GioHang *--> "*" MatHang: dsMatHang
+GioHang o--> IThanhToan: thanhToan
+GioHang o--> IKhuyenMai: khuyenMai
+
+@enduml

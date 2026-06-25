@@ -1,0 +1,27 @@
+@startuml
+
+class News{
+    + String title
+    + String content
+}
+class Topic{
+    + void attachListener(TopicListener listener)
+    + void detachListener(TopicListener listener)
+    + void notifyListener(News news, boolean isNew)
+    + void createNews(News news)
+    + void updateNews(News news)
+}
+interface TopicListener{
+    + void print(News news)
+}
+class A
+class B
+
+Topic o--> TopicListener: listeners
+TopicListener <|.. A
+TopicListener <|.. B
+Topic <-- A: topic
+Topic <-- B: topic
+Topic *--> "*" News: newsList
+
+@enduml

@@ -1,0 +1,40 @@
+@startuml
+
+class MatHang{
+    - String ten
+    - int soLuong
+    - double donGia
+}
+class GioHang{
+    + void themMatHang(MatHang)
+    + void setThanhToan(PhuongThucThanhToan thanhToan)
+    + void setKhuyenMai(PhuongThucKhuyenMai khuyenMai)
+    + double tinhTongTienGoc()
+    + double tinhTien()
+}
+interface PhuongThucThanhToan{
+    + void thanhToan(double tongTien)
+}
+interface PhuongThucKhuyenMai{
+    + double khuyenMai(double tongTien)
+}
+
+class ThanhToanCOD
+class ThanhToanAirPay
+class ThanhToanMasterCard
+
+class KhuyenMaiPhanTram
+class KhuyenMaiCoDinh
+
+PhuongThucThanhToan <|.. ThanhToanCOD
+PhuongThucThanhToan <|.. ThanhToanAirPay
+PhuongThucThanhToan <|.. ThanhToanMasterCard
+
+PhuongThucKhuyenMai <|.. KhuyenMaiPhanTram
+PhuongThucKhuyenMai <|.. KhuyenMaiCoDinh
+
+GioHang *--> "*" MatHang: danhSachMatHang
+GioHang o--> PhuongThucThanhToan: thanhToan
+GioHang o--> PhuongThucKhuyenMai: khuyenMai
+
+@enduml

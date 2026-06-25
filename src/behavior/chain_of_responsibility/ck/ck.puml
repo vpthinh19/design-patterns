@@ -1,0 +1,25 @@
+@startuml
+class HoaDon{
+    - String maKH
+    - String tenKH
+    - double tongTien
+    - double tongSoKhoi
+    - List<String> chiTietTungBac
+    + void setTinhTien(BacTinhTien hanlder)
+    + double tinhTien()
+
+}
+abstract class BacTinhTien{
+    + double tinhTien(double soKhoiConLai, HoaDon hoaDon)
+    + void inThongTin(HoaDon hoaDon)
+}
+class Bac{
+    + void setBacTiepTheo(IBac hanlder)
+}
+class BacCuoi
+
+BacTinhTien <|-- Bac
+BacTinhTien <|-- BacCuoi
+Bac o--> BacTinhTien: hanlder
+HoaDon o--> BacTinhTien: hanlder
+@enduml

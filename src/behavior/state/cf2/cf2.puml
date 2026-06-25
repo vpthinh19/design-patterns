@@ -1,0 +1,9 @@
+@startuml
+class ATM{
+    - double
+}
+interface ATMState
+
+
+ATM o--> ATMState: state
+@enduml
